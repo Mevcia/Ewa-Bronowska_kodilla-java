@@ -15,13 +15,13 @@ public class ForumTestSuite {
     }
 
     @BeforeClass
-    public void beforeClass() {
+    public static void beforeClass(){
         System.out.println("Test Suite begins");
     }
 
     @AfterClass
-    public void afterClass() {
-        System.out.println("Test Suite ends")
+    public static void afterClass() {
+        System.out.println("Test Suite ends");
     }
 
     @Test
@@ -33,5 +33,15 @@ public class ForumTestSuite {
         System.out.println("Testing " + result);
         //Then
         Assert.assertEquals("theForumUser", result);
+    }
+    @Test
+    public void testCaseRealName() {
+        //Given
+        SimpleUser simpleUser = new SimpleUser("theForumUser", "Jan Kowalski");
+        //When
+        String result = simpleUser.getRealName();
+        System.out.println("Testing " + result);
+        //Then
+        Assert.assertEquals("Jan Kowalski", result);
     }
 }
