@@ -5,17 +5,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class CollectionTestSuite {
-    private String[] listOfTestNames = new String[] {"for Empty List", "for Normal List"};
-    private static int n = 0;
+    private static int testCounter = 0;
 
     @Before
     public void before() {
-        System.out.println("Begin the Test Case " + listOfTestNames[n]);
-        n++;
+        testCounter++;
+        System.out.println("Begin the Test Case " + testCounter);
     }
     @After
     public void after() {
