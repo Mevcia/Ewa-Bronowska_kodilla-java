@@ -1,0 +1,19 @@
+package com.kodilla.testing.shape;
+
+public class Circle implements Shape {
+    private double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public String getShapeName() {
+        return "Circle";
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * Math.sqrt(radius);
+    }
+}
