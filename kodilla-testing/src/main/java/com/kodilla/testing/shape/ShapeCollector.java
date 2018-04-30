@@ -14,12 +14,7 @@ public class ShapeCollector {
         shapeList.add(shape);
     }
     public boolean removeFigure(Shape shape) {
-        boolean result = false;
-        if(shapeList.contains(shape)) {
-            shapeList.remove(shape);
-            result = true;
-        }
-        return result;
+        return shapeList.remove(shape);
     }
 
     public Shape getFigure(int n) {
@@ -30,7 +25,7 @@ public class ShapeCollector {
         return shape;
     }
     public void showFigures() {
-        if(shapeList.size()>0) {
+        if(!shapeList.isEmpty()) {
             System.out.println("List contains: ");
             for (Shape shape : shapeList) {
                 System.out.println(shape.getShapeName() + ", area: " + shape.getArea());
