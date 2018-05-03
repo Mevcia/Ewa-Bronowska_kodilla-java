@@ -106,11 +106,11 @@ public class AdvStatisticsTestSuite {
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         double avCommentPerPostNow = statisticsCalculator.getAverageCommentsPerPost();
         //Then
-        Assert.assertEquals(0.05, avCommentPerPostNow);
+        Assert.assertEquals(20, avCommentPerPostNow, 0.001);
     }
     @Test
     public void testPostsBiggerComments() {
-        //Given
+        //Given99
         Statistics statisticsMock = mock(Statistics.class);
         int postNumber = 100;
         int commentNumber = 5;
@@ -121,6 +121,6 @@ public class AdvStatisticsTestSuite {
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         double avCommentPerPost = statisticsCalculator.getAverageCommentsPerPost();
         //Then
-        Assert.assertEquals(20, avCommentPerPost);
+        Assert.assertEquals(0.05, avCommentPerPost, 0.001);
     }
 }

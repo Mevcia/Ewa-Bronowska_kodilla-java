@@ -23,8 +23,6 @@ public class StatisticsCalculator {
         }
         if(statistics.postsCount() !=0) {
             averageCommentsPerPost = (double) statistics.commentsCount() / statistics.postsCount();
-        } else {
-            averageCommentsPerPost = 0;
         }
     }
     public int getNumberOfUsers() {
