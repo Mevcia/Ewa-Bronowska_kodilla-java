@@ -110,7 +110,7 @@ public class AdvStatisticsTestSuite {
     }
     @Test
     public void testPostsBiggerComments() {
-        //Given99
+        //Given
         Statistics statisticsMock = mock(Statistics.class);
         int postNumber = 100;
         int commentNumber = 5;
