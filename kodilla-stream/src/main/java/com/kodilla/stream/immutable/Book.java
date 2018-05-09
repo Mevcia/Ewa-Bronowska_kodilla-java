@@ -25,8 +25,7 @@ public final class Book {
     }
 
     //Wrong formula - cannot modify field if it is final
-/** public void modifyYearOfPublication(int year) {
- *      yearOfPublication = year;
- *  }
- **/
+    /*public void modifyYearOfPublication(int year) {
+        yearOfPublication = year;
+    }*/
 }
