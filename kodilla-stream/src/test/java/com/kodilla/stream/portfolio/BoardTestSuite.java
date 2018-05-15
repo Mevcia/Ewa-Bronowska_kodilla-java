@@ -29,7 +29,7 @@ public class BoardTestSuite {
                 "Prepare some HQL queries for analysis",
                 user1,
                 user2,
-                LocalDate.now().minusDays(20),
+                LocalDate.now().minusDays(21),
                 LocalDate.now().minusDays(5));
         Task task3 = new Task("Temperatures entity",
                 "Prepare entity for temperatures",
@@ -148,6 +148,7 @@ public class BoardTestSuite {
         List<TaskList> inProgress = new ArrayList<>();
         inProgress.add(new TaskList("In progress"));
 
+        //When
         long numberOfTasks = project.getTaskLists().stream()
                 .filter(inProgress::contains)
                 .flatMap(tl -> tl.getTasks().stream())
@@ -160,9 +161,10 @@ public class BoardTestSuite {
                 .map(created -> ChronoUnit.DAYS.between(created, LocalDate.now()))
                 .reduce(0L, Long::sum);
 
-        double average = totalNumberOfDays / numberOfTasks;
+        double average = (double) totalNumberOfDays / numberOfTasks;
 
+        //Then
         Assert.assertEquals(3, numberOfTasks);
-        Assert.assertEquals(10, average, 0.001);
+        Assert.assertEquals(10.3333, average, 0.001);
     }
 }
