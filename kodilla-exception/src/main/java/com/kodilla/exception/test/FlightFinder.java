@@ -12,7 +12,7 @@ public class FlightFinder {
         flightMap.put("Lodz", false);
 
         if ((flightMap.get(flight.getDepartureAirport())) && (flightMap.get(flight.getArrivalAirport()))) {
-            System.out.println("You can flight from " + flight.getDepartureAirport() + " to " + flight.arrivalAirport);
+            System.out.println("You can fly from " + flight.getDepartureAirport() + " to " + flight.arrivalAirport);
         } else {
             throw new RouteNotFoundException("Flight not possible");
         }

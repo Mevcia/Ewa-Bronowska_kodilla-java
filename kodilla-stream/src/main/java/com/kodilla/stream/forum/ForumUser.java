@@ -39,7 +39,7 @@ public final class ForumUser {
                 .collect(Collectors.toSet());
     }
 
-        public String getUsername() {
+    public String getUsername() {
         return username;
     }
 

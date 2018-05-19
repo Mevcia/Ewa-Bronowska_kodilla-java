@@ -149,22 +149,15 @@ public class BoardTestSuite {
         inProgress.add(new TaskList("In progress"));
 
         //When
-        long numberOfTasks = project.getTaskLists().stream()
-                .filter(inProgress::contains)
-                .flatMap(tl -> tl.getTasks().stream())
-                .count();
 
-        long totalNumberOfDays = project.getTaskLists().stream()
+        double average = project.getTaskLists().stream()
                 .filter(inProgress::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
-                .map(created -> ChronoUnit.DAYS.between(created, LocalDate.now()))
-                .reduce(0L, Long::sum);
-
-        double average = (double) totalNumberOfDays / numberOfTasks;
+                .mapToLong(created -> ChronoUnit.DAYS.between(created, LocalDate.now()))
+                .average().orElse(0);
 
         //Then
-        Assert.assertEquals(3, numberOfTasks);
         Assert.assertEquals(10.3333, average, 0.001);
     }
 }
