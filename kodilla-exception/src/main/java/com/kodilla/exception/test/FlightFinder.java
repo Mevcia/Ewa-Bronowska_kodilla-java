@@ -11,15 +11,19 @@ public class FlightFinder {
         flightMap.put("Warsaw", true);
         flightMap.put("Lodz", false);
 
-        if ((flightMap.get(flight.getDepartureAirport())) && (flightMap.get(flight.getArrivalAirport()))) {
-            System.out.println("You can fly from " + flight.getDepartureAirport() + " to " + flight.arrivalAirport);
+        if (flightMap.containsKey(flight.getDepartureAirport()) && flightMap.containsKey(flight.getArrivalAirport())) {
+            if ((flightMap.get(flight.getDepartureAirport())) && (flightMap.get(flight.getArrivalAirport()))) {
+                System.out.println("You can fly from " + flight.getDepartureAirport() + " to " + flight.arrivalAirport);
+            } else {
+                throw new RouteNotFoundException("Flight not possible");
+            }
         } else {
             throw new RouteNotFoundException("Flight not possible");
         }
     }
     public static void main(String[] args) {
         FlightFinder flightFinder = new FlightFinder();
-        Flight flight = new Flight("Eindhoven", "Lodz");
+        Flight flight = new Flight("Warsaw", "Eindhoven");
         try {
             flightFinder.findFilght(flight);
         } catch (RouteNotFoundException e) {
