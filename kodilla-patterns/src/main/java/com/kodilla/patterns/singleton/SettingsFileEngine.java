@@ -1,13 +1,25 @@
 package com.kodilla.patterns.singleton;
 
 public class SettingsFileEngine {
+    private static SettingsFileEngine settingsFileEngineInstance = null;
     private String fileName = "";
 
-    public SettingsFileEngine() {
+    private SettingsFileEngine() {
     }
 
     public String getFileName() {
         return fileName;
+    }
+
+    public static SettingsFileEngine getInstance() {
+        if(settingsFileEngineInstance == null) {
+            synchronized (SettingsFileEngine.class) {
+                if(settingsFileEngineInstance == null) {
+                    settingsFileEngineInstance = new SettingsFileEngine();
+                }
+            }
+        }
+        return settingsFileEngineInstance;
     }
 
     public void open(final String fileName) {
