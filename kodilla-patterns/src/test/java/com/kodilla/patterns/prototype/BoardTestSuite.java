@@ -29,13 +29,24 @@ public class BoardTestSuite {
 
 //        creating the board and assigning the lists
         Board board = new Board("Project 1");
-        board.getListSet().add(listToDo);
-        board.getListSet().add(listInProgress);
-        board.getListSet().add(listDone);
+        board.getListsSet().add(listToDo);
+        board.getListsSet().add(listInProgress);
+        board.getListsSet().add(listDone);
+
+//        making a shallow clone of object board
+        Board clonedBoard = null;
+        try {
+            clonedBoard = board.shallowCopy();
+            clonedBoard.setName("Project 2");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
         System.out.println(board);
+        System.out.println(clonedBoard);
 
 //        When
 //        Then
-        Assert.assertEquals(3, board.getListSet().size());
+        Assert.assertEquals(3, board.getListsSet().size());
+        Assert.assertEquals(3, clonedBoard.getListsSet().size());
     }
 }
