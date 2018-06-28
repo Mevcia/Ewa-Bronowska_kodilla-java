@@ -41,8 +41,15 @@ public class BoardTestSuite {
         } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
-        System.out.println(board);
-        System.out.println(clonedBoard);
+
+//        making a deep clone of object board
+        Board deepClonedBoard = null;
+        try {
+            deepClonedBoard = board.deepCopy();
+            deepClonedBoard.setName("Project 3");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
 
 //        When
         board.getListsSet().remove(listToDo);
@@ -50,7 +57,11 @@ public class BoardTestSuite {
 //        Then
         System.out.println(board);
         System.out.println(clonedBoard);
-        Assert.assertEquals(3, board.getListsSet().size());
-        Assert.assertEquals(3, clonedBoard.getListsSet().size());
+        System.out.println(deepClonedBoard);
+        Assert.assertEquals(2, board.getListsSet().size());
+        Assert.assertEquals(2, clonedBoard.getListsSet().size());
+        Assert.assertEquals(3, deepClonedBoard.getListsSet().size());
+        Assert.assertEquals(clonedBoard.getListsSet(), board.getListsSet());
+        Assert.assertNotEquals(deepClonedBoard.getListsSet(), board.getListsSet());
     }
 }
