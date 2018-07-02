@@ -7,14 +7,14 @@ public class BigMacTestSuite {
     @Test
     public void shouldBuildBigMac() {
 //        Given
-        BigMac bigMac = new BigMac.BigMacBuilder()
-                .Ingredient(Ingredient.LETTUCE)
-                .BunType(BunType.WITH_SESAME)
-                .Burgers(3)
-                .Sauce(SauceType.BARBECUE)
-                .Ingredient(Ingredient.BACON)
-                .Ingredient(Ingredient.CHILI_PEPPERS)
-                .Ingredient(Ingredient.MUSHROOMS)
+        BigMac bigMac = new BigMac.Builder()
+                .ingredient(Ingredient.LETTUCE)
+                .bunType(BunType.WITH_SESAME)
+                .burgers(3)
+                .sauce(SauceType.BARBECUE)
+                .ingredient(Ingredient.BACON)
+                .ingredient(Ingredient.CHILI_PEPPERS)
+                .ingredient(Ingredient.MUSHROOMS)
                 .build();
         System.out.println(bigMac);
 
