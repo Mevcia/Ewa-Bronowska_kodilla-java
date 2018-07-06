@@ -15,7 +15,7 @@ import java.util.List;
 public class TaskDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
-    private static final String DESCRIPTION = "Test: Learn Hybernate";
+    private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
     public void testTaskDaoSave() {
