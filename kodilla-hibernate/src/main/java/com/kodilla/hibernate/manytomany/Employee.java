@@ -5,10 +5,16 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.getEmployeesWithLastName",
-        query = "FROM Employee WHERE lastName = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.getEmployeesWithLastName",
+                query = "FROM Employee WHERE lastName = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.getEmployeesWithNameContaining",
+                query = "select e from Employee e where lower(e.lastName) like lower('%' || :NAME_FRAGMENT || '%')"
+        )
+})
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

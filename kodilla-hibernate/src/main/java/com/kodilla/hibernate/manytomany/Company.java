@@ -11,6 +11,10 @@ import java.util.List;
                 "WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :BEGINNING",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.getCompanyWithNameContaining",
+        query = "select c from Company c where lower(c.name) like lower('%' || :NAME_FRAGMENT || '%')"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
