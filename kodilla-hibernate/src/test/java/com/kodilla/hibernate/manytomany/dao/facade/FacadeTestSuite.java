@@ -45,11 +45,11 @@ public class FacadeTestSuite {
             employeeDao.delete(employee2.getId());
             employeeDao.delete(employee3.getId());
         } catch (Exception e) {
-//            do nothing
+//        do nothing
         }
+
 //        Then
         Assert.assertEquals(2, employees.size());
-
     }
 
     @Test
@@ -65,19 +65,18 @@ public class FacadeTestSuite {
         companyDao.save(company3);
 
 //        When
-        List<Company> companies = facade.findCompany("r");
+        List<Company> companies = facade.findCompany("ka");
 
+//        CleanUp
         try {
             companyDao.delete(company1.getId());
             companyDao.delete(company2.getId());
             companyDao.delete(company3.getId());
         } catch (Exception e) {
-            //            do nothing
+//         do nothing
         }
 
 //        Then
         Assert.assertEquals(2, companies.size());
-
-//    CleanUp
     }
 }
